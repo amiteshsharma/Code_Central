@@ -1,0 +1,119 @@
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        targetNamespace="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2"
+        xmlns:tns="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2">
+
+    <xs:simpleType name="String">
+
+        <xs:restriction base="xs:normalizedString" />
+    </xs:simpleType>
+    <xs:complexType name="CodeType">
+
+        <xs:simpleContent>
+            <xs:extension base="xs:normalizedString">
+                <xs:attribute name="listID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="listVersionID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="name"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="languageID"
+                              type="tns:LanguageTagCodeType"
+                              use="optional">
+
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="CountryCodeType">
+
+        <xs:simpleContent>
+            <xs:extension base="xs:normalizedString">
+                <xs:attribute name="listID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="listVersionID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="name"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="languageID"
+                              type="tns:LanguageTagCodeType"
+                              use="optional">
+
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="IdentifierType">
+
+        <xs:simpleContent>
+            <xs:extension base="tns:String">
+                <xs:attribute name="schemeID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+                <xs:attribute name="schemeVersionID"
+                              type="xs:normalizedString"
+                              use="optional">
+
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+
+    <xs:simpleType name="YearType">
+
+        <xs:restriction base="xs:gYear" />
+    </xs:simpleType>
+    <xs:complexType name="TextType">
+
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="languageID"
+                              type="tns:LanguageTagCodeType"
+                              use="optional">
+
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="NameType">
+
+        <xs:simpleContent>
+            <xs:extension base="tns:String">
+                <xs:attribute name="languageID"
+                              type="tns:LanguageTagCodeType"
+                              use="optional">
+
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="LanguageTagCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
+

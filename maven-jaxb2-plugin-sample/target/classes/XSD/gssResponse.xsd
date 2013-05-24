@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="GSP">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="TM" type="xsd:decimal" />
+        <xsd:element name="Q" type="xsd:string" />
+        <xsd:element maxOccurs="unbounded" name="PARAM">
+          <xsd:complexType>
+            <xsd:attribute name="name" type="xsd:string" />
+            <xsd:attribute name="value" type="xsd:string" />
+            <xsd:attribute name="original_value" type="xsd:string" />
+            <xsd:attribute name="url_escaped_value" type="xsd:string" />
+            <xsd:attribute name="js_escaped_value" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Context">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="title" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="RES">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="M" type="xsd:int" />
+              <xsd:element name="NB">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="NU" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" name="RG">
+                <xsd:complexType>
+                  <xsd:attribute name="START" type="xsd:int" />
+                  <xsd:attribute name="SIZE" type="xsd:int" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" name="R">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="U" type="xsd:string" />
+                    <xsd:element name="UE" type="xsd:string" />
+                    <xsd:element name="T" type="xsd:string" />
+                    <xsd:element name="RK" type="xsd:int" />
+                    <xsd:element name="S" type="xsd:string" />
+                    <xsd:element name="LANG" type="xsd:string" />
+                    <xsd:element name="Label" type="xsd:string" />
+                    <xsd:element name="PageMap">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element maxOccurs="unbounded" name="DataObject">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element maxOccurs="unbounded" name="Attribute">
+                                  <xsd:complexType>
+                                    <xsd:attribute name="name" type="xsd:string" />
+                                    <xsd:attribute name="value" type="xsd:string" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                              <xsd:attribute name="type" type="xsd:string" />
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="HAS">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="L" type="xsd:string" />
+                          <xsd:element name="C">
+                            <xsd:complexType>
+                              <xsd:attribute name="SZ" type="xsd:string" />
+                              <xsd:attribute name="CID" type="xsd:string" />
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="RT" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="N" type="xsd:int" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="RHS_COLUMN">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="RG">
+                      <xsd:complexType>
+                        <xsd:attribute name="START" type="xsd:int" />
+                        <xsd:attribute name="SIZE" type="xsd:int" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="SN" type="xsd:int" />
+            <xsd:attribute name="EN" type="xsd:int" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+      <xsd:attribute name="VER" type="xsd:decimal" />
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

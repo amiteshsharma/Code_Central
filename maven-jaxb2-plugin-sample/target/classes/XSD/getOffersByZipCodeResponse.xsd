@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="offers">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="national">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="deal">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="title" type="xsd:string" />
+                    <xsd:element name="subtitle" type="xsd:string" />
+                    <xsd:element name="copy" type="xsd:string" />
+                    <xsd:element name="legal" type="xsd:string" />
+                    <xsd:element name="offerTypes">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="type" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="startDate" type="xsd:string" />
+                    <xsd:element name="endDate" type="xsd:string" />
+                    <xsd:element name="additionalterms" type="xsd:string" />
+                    <xsd:element maxOccurs="unbounded" name="car">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="model" type="xsd:string" />
+                          <xsd:element name="trim" type="xsd:string" />
+                          <xsd:element name="year" type="xsd:int" />
+                          <xsd:element name="edmtCarlineCode" type="xsd:int" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="customImage">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="name" type="xsd:string" />
+                          <xsd:element name="location" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:int" />
+                  <xsd:attribute name="priority" type="xsd:int" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="regional">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="deal">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="title" type="xsd:string" />
+                    <xsd:element name="subtitle" type="xsd:string" />
+                    <xsd:element name="copy" type="xsd:string" />
+                    <xsd:element name="legal" type="xsd:string" />
+                    <xsd:element name="offerTypes">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="type" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="startDate" type="xsd:string" />
+                    <xsd:element name="endDate" type="xsd:string" />
+                    <xsd:element name="additionalterms" type="xsd:string" />
+                    <xsd:element name="exclusions" type="xsd:string" />
+                    <xsd:element name="car">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="model" type="xsd:string" />
+                          <xsd:element name="trim" type="xsd:string" />
+                          <xsd:element name="year" type="xsd:int" />
+                          <xsd:element name="edmtCarlineCode" type="xsd:int" />
+                          <xsd:element name="edmtTrimCode" type="xsd:string" />
+                          <xsd:element name="edmtModelCode" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:int" />
+                  <xsd:attribute name="priority" type="xsd:int" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="code" type="xsd:string" />
+            <xsd:attribute name="name" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="daa">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="deal">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="title" type="xsd:string" />
+                    <xsd:element name="subtitle" type="xsd:string" />
+                    <xsd:element name="copy" type="xsd:string" />
+                    <xsd:element name="legal" type="xsd:string" />
+                    <xsd:element name="offerTypes">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="type" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="startDate" type="xsd:string" />
+                    <xsd:element name="endDate" type="xsd:string" />
+                    <xsd:element name="additionalterms" type="xsd:string" />
+                    <xsd:element name="exclusions" type="xsd:string" />
+                    <xsd:element name="car">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="model" type="xsd:string" />
+                          <xsd:element name="trim" type="xsd:string" />
+                          <xsd:element name="year" type="xsd:int" />
+                          <xsd:element name="edmtCarlineCode" type="xsd:int" />
+                          <xsd:element name="edmtTrimCode" type="xsd:string" />
+                          <xsd:element name="edmtModelCode" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="id" type="xsd:int" />
+                  <xsd:attribute name="priority" type="xsd:int" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="code" type="xsd:int" />
+            <xsd:attribute name="name" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+
+
+</xsd:schema>

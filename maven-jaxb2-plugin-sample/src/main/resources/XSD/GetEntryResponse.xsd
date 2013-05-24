@@ -1,0 +1,80 @@
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xmldefs.vwgoa.na.vwg/services/DataService/VehicleLifecycleService/V1"
+           xmlns:bas="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2"
+           xmlns:veh="http://xmldefs.vwgoa.na.vwg/DD/Vehicle"
+           xmlns:com="http://xmldefs.vwgoa.na.vwg/DD/Commons/V2"
+           xmlns:tns="http://xmldefs.vwgoa.na.vwg/services/DataService/VehicleLifecycleService/V1"
+        >
+        <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2" schemaLocation="BasicTypes.xsd"/>
+        <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/Commons/V2" schemaLocation="Commons.xsd"  />
+        <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/Vehicle" schemaLocation="Vehicle.xsd" />
+
+    <xs:element name="GetEntry">
+        <xs:complexType >
+            <xs:sequence>
+                <xs:element ref="veh:VehicleRef" maxOccurs="1" minOccurs="1"/>
+                <xs:element maxOccurs="1"
+                            minOccurs="0"
+                            name="LanguageID"
+                            type="bas:LanguageTagCodeType">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetEntryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="veh:Vehicle" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetEquipment"
+                type="tns:GetEquipmentType">
+    </xs:element>
+    <xs:complexType name="GetEquipmentType">
+        <xs:sequence>
+            <xs:element ref="veh:VehicleRef" maxOccurs="1" minOccurs="1">
+
+            </xs:element>
+            <xs:element maxOccurs="1"
+                        minOccurs="0"
+                        name="LanguageID"
+                        type="bas:LanguageTagCodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="GetEquipmentResponse"
+                type="tns:GetEquipmentResponseType">
+    </xs:element>
+    <xs:complexType name="GetEquipmentResponseType">
+        <xs:sequence>
+            <xs:element ref="veh:Vehicle" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ProcessAliveTest"
+                type="tns:ProcessAliveTestType" />
+    <xs:complexType name="ProcessAliveTestType" />
+    <xs:element name="AcknowledgeAliveTest"
+                type="tns:AcknowledgeAliveTestType" />
+    <xs:complexType name="AcknowledgeAliveTestType">
+        <xs:sequence>
+            <xs:element ref="com:AliveTestAcknowledgement" />
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="VehicleIdentifier" type="tns:VehicleReference"></xs:element>
+
+    <xs:complexType name="VehicleReference">
+        <xs:sequence>
+            <xs:element ref="veh:VehicleRef" maxOccurs="1" minOccurs="1"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

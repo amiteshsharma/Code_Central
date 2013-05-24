@@ -1,0 +1,381 @@
+<xs:schema
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://xmldefs.vwgoa.na.vwg/DD/Vehicle"
+           xmlns:bas="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2"
+           xmlns:bprRef="http://xmldefs.vwgoa.na.vwg/DD/BusinessPartner/Ref/V1"
+           xmlns:tns="http://xmldefs.vwgoa.na.vwg/DD/Vehicle">
+    <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/BusinessPartner/Ref/V1" schemaLocation="BusinessPartner.xsd" />
+    <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2" schemaLocation="BasicTypes.xsd" />
+
+    <xs:element name="Vehicle"
+                type="tns:VehicleType">
+    </xs:element>
+    <xs:element name="VehicleRef"
+                type="tns:VehicleIdentifierType">
+
+    </xs:element>
+    <xs:complexType name="VehicleType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="VehicleIdentifier"
+                        type="tns:VehicleIdentifierType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Manufacturer"
+                        type="tns:ManufacturerType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Model"
+                        type="tns:ModelType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="TechnicalData"
+                        type="tns:TechnicalDataType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="LifeData"
+                        type="tns:LifeDataType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="EquipmentsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Equipment"
+                        type="tns:EquipmentType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ModelType">
+        <xs:sequence>
+            <xs:element name="Carline" type="bas:CodeType" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element minOccurs="0" name="ModelName"
+                        type="bas:TextType">
+
+            </xs:element>
+            <xs:element minOccurs="0" name="ModelCodes"
+                        type="tns:ModelCodesType">
+
+            </xs:element>
+            <xs:element minOccurs="0" name="ModelYear"
+                        type="bas:YearType">
+
+            </xs:element>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ModelCodesType">
+
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="ModelCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ColorsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="ColorCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ADIType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="Finish"
+                        type="tns:ColorsType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Top"
+                        type="tns:ColorsType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Interior"
+                        type="tns:InteriorsType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Paint"
+                        type="tns:ColorsType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EngineType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="EngineCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="EngineCodeExtension"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VehicleIdentifierType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="VIN"
+                        type="bas:IdentifierType">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="TransmissionType">
+
+        <xs:sequence>
+            <xs:element name="Kind"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="TransmissionCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LifeDataType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="Status"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="TimeLine"
+                        type="tns:TimeLineType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Dealers"
+                        type="tns:DealersType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TechnicalDataType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="ADI"
+                        type="tns:ADIType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Engines"
+                        type="tns:EnginesType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Transmissions"
+                        type="tns:TransmissionsType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Equipments"
+                        type="tns:EquipmentsType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="CountryComposition"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EnginesType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Engine"
+                        type="tns:EngineType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TransmissionsType">
+
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Transmission"
+                        type="tns:TransmissionType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DealersType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Dealer"
+                        type="tns:DealerType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DealerType">
+        <xs:sequence>
+            <xs:element ref="bprRef:DealerRef">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Role"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TimeLineType">
+
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="ProductionDate"
+                        type="tns:ProductionDateType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Production date.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="DeliveryDate"
+                        type="tns:DeliveryDateType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of first delivery to a customer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProductionDateType">
+        <xs:sequence>
+            <xs:element name="Date"
+                        type="bas:String">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of production according to ISO8601 (e.g. 2007-12-10).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DeliveryDateType">
+        <xs:sequence>
+            <xs:element name="Date"
+                        type="bas:String">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Date of fist delivery according to ISO8601 (e.g.
+                        2007-12-10).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EquipmentType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="EquipmentOptions"
+                        type="tns:EquipmentOptionsType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EquipmentOptionsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="EquipmentOption"
+                        type="tns:EquipmentOptionType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Options - can be Accessory/ Equipment or Package. The information mostly is
+                        manufacturer dependent.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EquipmentOptionType">
+        <xs:sequence>
+            <xs:element name="OptionCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="EquipmentClass"
+                        type="bas:CodeType">
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Family"
+                        type="bas:String">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Descriptions"
+                        type="tns:EquipmentDescriptionsType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ManufacturerType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="BrandCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="InteriorsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="InteriorCode"
+                        type="bas:CodeType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EquipmentDescriptionType">
+        <xs:sequence>
+            <xs:element name="Type"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element name="Text"
+                        type="bas:TextType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="EquipmentDescriptionsType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Description"
+                        type="tns:EquipmentDescriptionType">
+                <xs:annotation>
+                    <xs:documentation xml:lang="en">Text description of the equipment term.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+    

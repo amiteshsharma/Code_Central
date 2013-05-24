@@ -1,0 +1,165 @@
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xmldefs.vwgoa.na.vwg/DD/Commons/V2"
+           xmlns:bas="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2"
+           xmlns:tns="http://xmldefs.vwgoa.na.vwg/DD/Commons/V2">
+
+    <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2" schemaLocation="BasicTypes.xsd" />
+
+
+    <xs:element name="Confirmation"
+                type="tns:ConfirmationType" />
+    <xs:complexType name="ConfirmationType" />
+
+    <xs:element name="AliveTestAcknowledgement"
+                type="tns:AliveTestAcknowledgementType" />
+    <xs:complexType name="AliveTestAcknowledgementType">
+        <xs:sequence>
+            <xs:element name="ServiceProvider"
+                        type="tns:ServiceProviderType">
+
+            </xs:element>
+            <xs:element name="ServiceInfo"
+                        type="tns:ServiceInfoType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceProviderType">
+        <xs:sequence>
+            <xs:element name="Hostname"
+                        type="bas:NameType">
+
+            </xs:element>
+            <xs:element name="Name"
+                        type="bas:NameType">
+
+            </xs:element>
+            <xs:element name="Version"
+                        type="bas:IdentifierType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Vendor"
+                        type="bas:NameType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ServiceInfoType">
+        <xs:sequence>
+            <xs:element name="Name"
+                        type="bas:NameType">
+
+            </xs:element>
+            <xs:element name="Revision"
+                        type="bas:IdentifierType">
+
+            </xs:element>
+            <xs:element maxOccurs="unbounded"
+                        minOccurs="0"
+                        name="Operation"
+                        type="bas:NameType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Fault"
+                type="tns:FaultType" />
+    <xs:element name="FaultBasic"
+                type="tns:FaultBasicType" />
+    <xs:complexType name="FaultType">
+        <xs:sequence>
+            <xs:element ref="tns:FaultBasic" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FaultBasicType">
+        <xs:sequence>
+            <xs:element name="FaultSystem"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element name="FaultClass"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element name="FaultCode"
+                        type="bas:String">
+
+            </xs:element>
+            <xs:element name="FaultLevel"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="FaultID"
+                        type="bas:String">
+
+            </xs:element>
+            <xs:element name="FaultTimestamp"
+                        type="bas:String">
+
+            </xs:element>
+            <xs:element name="FaultDescription"
+                        type="bas:TextType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="FaultCodeDetails"
+                        type="tns:FaultCodeDetailType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="FaultSystemDetails"
+                        type="tns:FaultSystemDetailType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="FaultReason"
+                        type="bas:String">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FaultCodeDetailType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Param"
+                        type="tns:CodeParamType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FaultSystemDetailType">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded"
+                        name="Param"
+                        type="tns:SystemParamType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SystemParamType">
+        <xs:sequence>
+            <xs:element name="ParamName"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element name="ParamValue"
+                        type="bas:String">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CodeParamType">
+        <xs:sequence>
+            <xs:element name="ParamName"
+                        type="bas:String">
+
+            </xs:element>
+            <xs:element name="ParamValue"
+                        type="bas:String">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

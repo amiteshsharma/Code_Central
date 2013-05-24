@@ -1,0 +1,62 @@
+<xs:schema
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            targetNamespace="http://xmldefs.vwgoa.na.vwg/DD/BusinessPartner/Ref/V1"
+            xmlns:bas="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2"
+            xmlns:tns="http://xmldefs.vwgoa.na.vwg/DD/BusinessPartner/Ref/V1">
+    <xs:import namespace="http://xmldefs.vwgoa.na.vwg/DD/BasicTypes/V2" schemaLocation="BasicTypes.xsd" />
+
+    <xs:element name="DealerRef"
+                type="tns:PartnerIdentifierType">
+
+    </xs:element>
+    <xs:complexType name="PartnerIdentifierType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="DealerIdentifier"
+                        type="tns:DealerIdentifierType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="WholesalerIdentifier"
+                        type="tns:WholesalerIdentifierType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DealerIdentifierType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="PartnerKey"
+                        type="tns:PartnerKeyType">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PartnerKeyType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="Country"
+                        type="bas:CountryCodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="Brand"
+                        type="bas:CodeType">
+
+            </xs:element>
+            <xs:element minOccurs="0"
+                        name="PartnerNumber"
+                        type="bas:String">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="WholesalerIdentifierType">
+        <xs:sequence>
+            <xs:element minOccurs="0"
+                        name="WholesalerNumber"
+                        type="bas:String">
+
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
